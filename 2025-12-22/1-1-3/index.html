@@ -18,7 +18,13 @@
       };
 
       for (let key in me) {
-        console.log(key, `: ${me[key]}`, `= ${typeof me[key]}`);
+        let value = me[key];
+        let type = value === null ? "null" : typeof value;
+
+        console.log(key, `: ${value} = ${type}`);
+
+        // console.log(key, `: ${me[key]} = ${typeof me[key]}`);
+        // console.log(key, `: ${me[key]}`, `= ${typeof me[key]}`);
       }
 
       let status = me.age >= 18 ? "성인" : "미성년자";
