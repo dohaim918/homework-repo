@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나만의 프로필 데이터 만들기</title>
+  </head>
+  <body>
+    <script>
+      "use srtict";
+
+      let me = {
+        username: "김도하",
+        age: 26,
+        isStudent: false,
+        hobby: ["수면", "코딩학습"],
+        emptyVal: null,
+      };
+
+      for (let key in me) {
+        console.log(key, `: ${me[key]}`, `= ${typeof me[key]}`);
+      }
+
+      let status = me.age >= 18 ? "성인" : "미성년자";
+      console.log(`제 신분은 ${status} 입니다`);
+    </script>
+  </body>
+</html>
