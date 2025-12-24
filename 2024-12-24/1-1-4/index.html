@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구구단 출력기 만들기</title>
+  </head>
+  <body>
+    <script>
+      const input = prompt("숫자를 입력하세요");
+      const num = Number(input);
+
+      for (let i = 1; i < 10; i++) {
+        if (num < 2 || num > 9) {
+          console.log(`2~9 사이 숫자를 입력하세요`);
+        } else {
+          console.log(`${num} X ${i} = ${num * i}`);
+        }
+      }
+    </script>
+  </body>
+</html>
