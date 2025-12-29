@@ -14,9 +14,11 @@
       cart.push({ product: "바지", price: 20000 });
 
       const products = [];
-      for (i of cart) {
+      for (let i of cart) {
         products.push(i.product);
       }
+      console.log(`기존 상품 목록 : ${products.slice()}`);
+
       let remove = products.indexOf("치마");
 
       if (remove !== -1) {
