@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>학생 정보 객체 관리하기</title>
+  </head>
+  <body>
+    <script>
+      const student = {
+        name: "김도하",
+        age: 26,
+        scores: { math: 88, english: 44 },
+      };
+
+      const getProperty = function (obj, key) {
+        return obj[key];
+      };
+
+      const printScore = function (scores) {
+        return (scores.math + scores.english) / 2;
+      };
+
+      const deepCopy = structuredClone(student);
+      deepCopy.scores.history = 50;
+
+      const printStudentInfo = function (student) {
+        console.log(`이름 : ${getProperty(student, "name")}`);
+        console.log(`나이 : ${getProperty(student, "age")}`);
+        console.log(`평균 점수 : ${printScore(getProperty(student, "scores"))}`);
+        console.log({ "원본 scores": student.scores });
+        console.log({ "copy scores": deepCopy.scores });
+      };
+
+      printStudentInfo(student);
+    </script>
+  </body>
+</html>
