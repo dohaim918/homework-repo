@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 탐색기 만들기</title>
+  </head>
+  <body>
+    <div>
+      <button id="myBtn"><span>myBtn</span></button>
+      <p class="result"></p>
+    </div>
+    <script>
+      "use strict";
+      const btn = document.querySelector("#myBtn");
+      console.log(`tag name : ${btn.tagName}`);
+      console.log(`children : ${btn.children.length}`);
+      console.log(`textContext : ${btn.textContent}`);
+      console.log(`parent : ${btn.parentElement.tagName}`);
+
+      const btnAll = document.querySelectorAll("#myBtn");
+      console.log("querySelector : ", btn);
+      console.log("querySelectorAll : ", btnAll);
+
+      const result = document.querySelector(".result");
+
+      btn.addEventListener("click", printResult);
+      function printResult() {
+        result.textContent = `tag name : ${btn.tagName}, children : ${btn.children.length}, textContext : ${btn.textContent}, parent : ${btn.parentElement.tagName}`;
+      }
+    </script>
+  </body>
+</html>

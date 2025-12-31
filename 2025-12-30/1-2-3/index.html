@@ -21,6 +21,8 @@
         return (scores.math + scores.english) / 2;
       };
 
+      // 예전 방식
+      //   const deepCopy = JSON.pare(JSON.stringify(student));
       const deepCopy = structuredClone(student);
       deepCopy.scores.history = 50;
 

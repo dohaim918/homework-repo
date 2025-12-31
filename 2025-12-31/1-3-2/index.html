@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>간단한 프로필 카드 조작하기</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      body.dark-mode {
+        background-color: #121212;
+      }
+
+      .profile-card {
+        width: 200px;
+        margin: 0 auto;
+        border: 2px solid hotpink;
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        transition: box-shadow 0.3s;
+      }
+      .profile-card:hover {
+        box-shadow: 0 0 20px rgba(255, 0, 128, 0.8);
+      }
+      .dark-mode {
+        color: white;
+        background-color: #1a1a1a;
+      }
+      .profile-name {
+        margin: 0 0 18px 0;
+
+        text-align: center;
+      }
+      .mode {
+        padding: 8px;
+        border-radius: 12px;
+        border: 2px solid hotpink;
+        background-color: rgb(255, 0, 128);
+        color: white;
+        transition: box-shadow 0.3s;
+        font-weight: bold;
+      }
+      .mode:hover {
+        box-shadow: 0 0 10px rgba(255, 0, 128, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile-card" data-user-id="1121">
+      <h1 class="profile-name">홍길동</h1>
+      <button type="button" class="mode">🌙 Dark Mode 🌙</button>
+    </div>
+    <script>
+      "use strict";
+
+      // 1. 이름 변경
+      const profileCard = document.querySelector(".profile-card");
+      const profileName = document.querySelector(".profile-name");
+      profileName.textContent = "김도하";
+
+      //   2. 다크모드
+      const btn = document.querySelector("button[type=button]");
+      function modeChange() {
+        profileCard.classList.toggle("dark-mode");
+        document.body.classList.toggle("dark-mode");
+
+        const isDark = document.body.classList.contains("dark-mode");
+        btn.textContent = isDark ? "☀️ Light Mode ☀️" : "🌙 Dark Mode 🌙";
+      }
+      btn.addEventListener("click", modeChange);
+
+      //   3. dataset 출력
+      console.log("user-id : " + profileCard.dataset.userId);
+
+      // 4. 요소추가
+      const tag = document.createElement("span");
+      tag.textContent = "개발자";
+      tag.style.fontWeight = "600";
+      tag.style.textAlign = "center";
+
+      profileCard.prepend(tag);
+    </script>
+  </body>
+</html>
