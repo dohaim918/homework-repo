@@ -17,11 +17,15 @@
         return obj[key];
       };
 
+      // * for...in 사용해서 한번더 만들어 보기! ( + hasOneProperty()사용 )
       const printScore = function (scores) {
         return (scores.math + scores.english) / 2;
       };
 
-      // 예전 방식
+      // ! 앝은 복사
+      // const shallowCopy = { ...student };
+
+      // ! 깊은 복사 - 예전 방식
       //   const deepCopy = JSON.pare(JSON.stringify(student));
       const deepCopy = structuredClone(student);
       deepCopy.scores.history = 50;
