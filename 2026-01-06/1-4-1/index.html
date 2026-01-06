@@ -10,18 +10,12 @@
       "use strict";
 
       const users = [
-        {
-          name: "Kim",
-          profile: { bio: "hi" },
-        },
-        {
-          name: "Lee",
-          profile: null,
-        },
+        { name: "Kim", profile: { bio: "hi" } },
+        { name: "Lee", profile: null },
       ];
 
       for (const user of users) {
-        // user.profile = user.profile ?? { bio: "소개 없음" };
+        // user.profile ??= { bio: "소개 없음" };
         // console.log(`<div>${user.name} : ${user.profile.bio}</div>`);
         const bioText = user.profile?.bio ?? "소개 없음";
         console.log(`<div>${user.name} : ${bioText}</div>`);
