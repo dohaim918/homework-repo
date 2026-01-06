@@ -5,5 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>이벤트 위임 - 버튼 그룹 효율적으로 관리하기</title>
   </head>
-  <body></body>
+  <body>
+    <div class="button-group">
+      <button data-action="add">추가</button>
+      <button data-action="edit">수정</button>
+      <button data-action="delete">삭제</button>
+    </div>
+
+    <script>
+      "use strict";
+
+      const btnGroup = document.querySelector(".button-group");
+
+      function btnClick(e) {
+        const btn = e.target.closest("button");
+        if (!btn) return;
+
+        const action = btn.dataset.action;
+        // console.log(action);
+
+        switch (action) {
+          case "add":
+            console.log("Add Clicked");
+            break;
+          case "edit":
+            console.log("Edit Clicked");
+            break;
+          case "delete":
+            console.log("Delet Clicked");
+            break;
+        }
+      }
+      btnGroup.addEventListener("click", btnClick);
+    </script>
+  </body>
 </html>
