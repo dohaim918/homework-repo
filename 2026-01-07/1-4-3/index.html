@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클로저로 카운터 모듈 만들기</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      function createCounter() {
+        let count = 0;
+        return {
+          increment() {
+            count += 1;
+            return count;
+          },
+          decrement() {
+            count -= 1;
+            return count;
+          },
+          getVelue() {
+            return count;
+          },
+          reset() {
+            return (count = 0);
+          },
+        };
+      }
+      const counter1 = createCounter();
+      const counter2 = createCounter();
+
+      console.log(`counter1 증가 : ${counter1.increment()}`);
+      console.log(`counter2 증가 : ${counter2.increment()}`);
+      console.log(`counter1 리셋 : ${counter1.reset()}`);
+    </script>
+  </body>
+</html>

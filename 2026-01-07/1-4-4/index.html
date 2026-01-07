@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>this 바인딩 실험하기</title>
+  </head>
+  <body>
+    <script>
+      //   "use strict";
+      const hero = {
+        myName: "Batman",
+        call() {
+          console.log(this.myName);
+        },
+
+        // * 일반함수로 unfind 출력
+        timerUndefind() {
+          setTimeout(function () {
+            console.log("3초 타이머 : ", this.myName);
+          }, 3000);
+        },
+        // * 화살표 함수로 가능하게
+        timer() {
+          setTimeout(() => console.log("3초 타이머 : ", this.myName), 3000);
+        },
+      };
+
+      // 1. this 손실 (undefined)
+      // * hero.call을 변수에 할당하면 객체와 참조가 끊어지면서 this 바인딩이 끊어지고 this는 전역 객체(window)를 가리키게 된다
+      // * (+ "use strict";모드에서는 콘솔에 정상적으로 실행되지 않는다)
+      const stolenCall = hero.call;
+      stolenCall();
+
+      // 2. bind로 해결하기
+      const fixedCall = hero.call.bind(hero);
+      fixedCall();
+
+      // 3. 타이머
+      hero.timerUndefind();
+      hero.timer();
+    </script>
+  </body>
+</html>
