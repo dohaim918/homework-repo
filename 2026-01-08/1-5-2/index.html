@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>카페 주문 흐름 시물레이션</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      console.log("1. 가게 오픈");
+
+      setTimeout(() => {
+        console.log("2. 일반 손님 주문 완료");
+      }, 0);
+
+      Promise.resolve().then(() => {
+        console.log("3. VIP 손님 입장");
+      });
+
+      console.log("4. 재료 준비");
+
+      // # 요구사항 1 : 1. 가게 오픈 ➔ 4. 재료 준비 ➔ 3. VIP 손님 입장 ➔ 2. 일반 손님 주문 완료
+
+      // # 요구사항 2 : Promise가 태스크 2가지 종류 중 마이크로 태스크 (VIP)이기 때문에
+      //               매크로 태스크인 setTimeout의 "일반 손님"보다 "vip"가 먼저 출력된다
+
+      // # 요구사항 3 : setTimeout 시간을 1초로 늘리더라도 실행 순서는 바뀌지 않는다
+    </script>
+  </body>
+</html>

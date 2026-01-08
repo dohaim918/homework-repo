@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쇼핑몰 데이터 파이프라인</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      const products = [
+        { name: "Mouse", price: 50000, stock: 10 },
+        { name: "Key", price: 15000, stock: 0 },
+        { name: "Monitor", price: 400000, stock: 5 },
+        { name: "Speaker", price: 80000, stock: 0 },
+      ];
+
+      const result = products
+        .filter((p) => p.stock > 0)
+        .map((p) => ({ ...p, saleprice: p.price * 0.9 }))
+        .sort((a, b) => a.saleprice - b.saleprice);
+
+      console.log(result);
+    </script>
+  </body>
+</html>
