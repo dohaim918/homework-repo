@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>피자 배달 시뮬레이션</title>
+  </head>
+  <body>
+    <script>
+      // 1초 뒤 성공하는 가짜 함수
+      const orderPizza = (name) =>
+        new Promise((resolve) => {
+          setTimeout(() => resolve(name), 1000);
+        });
+
+      const makeDough = (orderId) =>
+        new Promise((resolve) => {
+          setTimeout(() => resolve({ dough: true }), 1000);
+        });
+
+      const bakePizza = (dough) =>
+        new Promise((resolve) => {
+          setTimeout(() => resolve({ name: "Pepperoni" }), 1000);
+        });
+
+      // 현재코드
+      /* orderPizza("Pepperoni", (err, orderId) => {
+          if (err) return handleError(err);
+
+          makeDough(orderId, (err, dough) => {
+            if (err) return handleError(err);
+
+            bakePizza(dough, (err, pizza) => {
+              if (err) return handleError(err);
+              console.log(`${pizza.name} 배달 완료! 🍕`);
+            });
+          });
+        }); */
+
+      async function deliverPizza() {
+        try {
+          const orderId = await orderPizza("Pepperoni");
+          const dough = await makeDough(orderId);
+          const pizza = await bakePizza(dough);
+          console.log(`${pizza.name} 배달 완료! 🍕`);
+        } catch (err) {
+          console.error("배달 실패!", err);
+        }
+      }
+      deliverPizza();
+    </script>
+  </body>
+</html>
