@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 위임 - 버튼 그룹 효율적으로 관리하기</title>
+    <style>
+      body {
+        background-color: #121212;
+        font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 0;
+        padding-top: 50px;
+      }
+
+      .container {
+        background-color: #1e1e1e;
+        width: 100%;
+        max-width: 400px;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 25px;
+      }
+
+      #todo-input {
+        flex: 1;
+        background-color: #2c2c2c;
+        border: 1px solid #3d3d3d;
+        border-radius: 10px;
+        padding: 12px 16px;
+        color: #ffffff;
+        font-size: 16px;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      #todo-input:focus {
+        border-color: #cf16a1;
+        box-shadow: 0 0 8px rgba(255, 88, 247, 0.3);
+      }
+
+      #add-btn {
+        background-color: #cf16a1;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 0 20px;
+        /* font-weight: 300; */
+        cursor: pointer;
+        transition: background-color 0.2s;
+        box-shadow: #cf16a1;
+      }
+
+      #add-btn:hover {
+        background-color: rgb(196, 33, 155);
+        box-shadow: 0 0 10px rgba(207, 22, 161, 0.8);
+      }
+
+      #add-btn:focus {
+        outline: 1.5px solid #ff99e6;
+      }
+
+      #todo-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: rgb(182, 182, 182);
+        padding: 14px 10px;
+        border-bottom: 1px solid #2d2d2d;
+      }
+
+      .delete-btn {
+        background-color: transparent;
+        color: #ff5252;
+        border: 1px solid #ff5252;
+        border-radius: 6px;
+        padding: 4px 10px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .delete-btn:hover {
+        background-color: #ff5252;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-group">
+        <input id="todo-input" type="text" placeholder="할 일 입력" />
+        <button id="add-btn">추가</button>
+      </div>
+
+      <ul id="todo-list"></ul>
+    </div>
+
+    <script>
+      const input = document.getElementById("todo-input");
+      const addBtn = document.getElementById("add-btn");
+
+      const list = document.getElementById("todo-list");
+
+      const saved = localStorage.getItem("todos");
+      const todos = saved ? JSON.parse(saved) : [];
+
+      function render() {
+        list.innerHTML = "";
+        todos.forEach((todo) => {
+          const li = document.createElement("li");
+          li.textContent = todo;
+          li.classList.add("list");
+          list.append(li);
+
+          const delBtn = document.createElement("button");
+          delBtn.textContent = "삭제";
+          delBtn.classList.add("delete-btn");
+          li.append(delBtn);
+        });
+      }
+
+      addBtn.addEventListener("click", () => {
+        const text = input.value.trim();
+        // console.log(text);
+        if (text !== "") {
+          todos.push(text);
+          localStorage.setItem("todos", JSON.stringify(todos));
+          input.value = "";
+          render();
+        }
+      });
+
+      render();
+    </script>
+  </body>
+</html>
