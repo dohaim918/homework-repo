@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>간단한 구현 문제 풀어보기</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      function sum(n) {
+        if (n === 1) return 1;
+
+        let total = n + sum(n - 1);
+        return total;
+      }
+      function sumEven(n) {
+        let total = 0;
+        for (let i = 0; i <= n; i++) {
+          if (i % 2 === 0) {
+            total += i;
+          }
+        }
+
+        return total;
+      }
+      function sumOdd(n) {
+        let total = 0;
+        for (let i = 0; i <= n; i++) {
+          if (i % 2 !== 0) {
+            total += i;
+          }
+        }
+
+        return total;
+      }
+
+      const answer = sum(10); // 임의의 수를 입력
+      const answerEven = sumEven(10); // 임의의 수를 입력
+      const answerOdd = sumOdd(10); // 임의의 수를 입력
+      console.log(`전체 합계 : ${answer}`);
+      console.log(`짝수 합계 : ${answerEven}`);
+      console.log(`홀수 합계 : ${answerOdd}`);
+    </script>
+  </body>
+</html>
