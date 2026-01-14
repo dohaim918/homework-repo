@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>시간 분배하며 문제 풀기</title>
+  </head>
+  <body>
+    <script>
+      // 1. 프로그래머스 Level 0 문제 1개 선택 (짝수는 싫어요)
+
+      // 2. 읽기 - 문제 파악하기 (2분)
+      //    - n 이하의 홀수를 오름차순 배열로 만드는 문제
+      //    - n은 100 이하의 자연수만 테스트 하는걸 확인
+
+      // 3 계획 - 문제 전략 짜기 (3분)
+      //    1. n 이하의 숫자 중에서 홀수만 골라서 오름차순으로 배열에 넣고, 그 배열을 반환
+      //    2. 결과를 넣어줄 빈 배열 answer를 하나 만들기
+      //    3. 1부터 n까지 숫자를 하나씩 꺼내서 확인하는 반복문 작성
+      //    4. 2로 나눴을 때 나머지가 1이면 홀수이기 때문에 조건에 맞는 숫자만 배열에 추가
+
+      function solution(n) {
+        const answer = [];
+
+        for (let i = 1; i <= n; i++) {
+          if (i % 2 !== 0) answer.push(i);
+        }
+
+        return answer;
+      }
+
+      // 경계값 : (n=1, n=100) ➔ 가장 작은 수 1을 넣었을 때 [1]이 잘 나오는지 확인,
+      //                         가장 큰 수 100을 넣었을 때 마지막 홀수인 99까지 빠짐없이 들어가는지 체크해서
+      //                         반복문의 시작과 끝 지점을 한 번더 확인
+      console.log("경계값 n=1 결과 :", solution(1));
+      console.log("경계값 n=100 결과 :", solution(100));
+      // 특수 케이스 : (n=15) ➔ n 자체가 홀수인 경우, i <= n 조건에 맞게 동작해
+      //                        마지막 숫자인 15가 누락되지 않고 배열에 포함되는지 체크
+      console.log("특수 케이스 n=15 결과 :", solution(15));
+
+      // 답안 결과 출력
+      console.log("문제 결과:", solution(7));
+
+      console;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math 랜덤 주사위 게임</title>
+  </head>
+  <body>
+    <script>
+      function rollDice() {
+        // 1. 1~6 정수 반환
+        return Math.floor(Math.random() * 6) + 1;
+      }
+
+      function getScore(a, b) {
+        // 2. 절대값 차이 반환
+        return Math.abs(a - b);
+      }
+
+      const a = rollDice();
+      const b = rollDice();
+      console.log(`주사위 : ${a} + ${b}`);
+      console.log(`score : ${getScore(a, b)}`);
+    </script>
+  </body>
+</html>
