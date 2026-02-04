@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  font-family: "Pretendard", sans-serif;
+}
+
+.container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 24px;
+  padding: 20px;
+  transition: all 0.5s ease;
+}
+
+.container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 50px 36px;
+  width: 100%;
+  max-width: 350px;
+  transition:
+    transform 0.3s ease,
+    border 0.3s ease;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.container > div.light {
+  background: rgba(111, 118, 173, 0.1);
+  border: 1px solid rgba(101, 119, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(111, 103, 150, 0.5);
+}
+
+.container > div:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.container > div.light:hover {
+  border-color: rgba(101, 119, 255, 0.4);
+}
+
+.input-container {
+  padding: 0 10px;
+}
+div > h2 {
+  margin: 0 0 20px 0;
+  font-size: 1.4rem;
+  color: #818cf8;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+
+  text-align: center;
+}
+
+div.light h2 {
+  border-bottom-color: rgba(129, 141, 248, 0.5);
+}
+
+p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+p.error,
+p.none {
+  opacity: 0.8;
+  font-size: 0.8rem;
+  font-weight: 300;
+  transform: translateY(-8px);
+}
+
+p.none {
+  visibility: hidden;
+}
+
+.input-container p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+}
+
+input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 6px 12px;
+  color: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  caret-color: #818cf8; /* 커서 색상 통일 */
+  transition: all 0.3s ease;
+}
+.light input {
+  border: 1px solid rgba(129, 140, 248, 0.3);
+}
+
+input:focus {
+  outline: none;
+  background: rgba(129, 140, 248, 0.1);
+  border: 1px solid #818cf8;
+  box-shadow: 0 0 12px rgba(129, 140, 248, 0.3);
+}
+
+.btn-group {
+  display: flex;
+  gap: 12px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.light button {
+  background: rgba(111, 118, 173, 0.15);
+  color: #818cf8;
+  border: 1px solid #818df8a9;
+}
+
+button:hover {
+  background: #818cf8;
+  color: white;
+  transform: translateY(-2px);
+}
