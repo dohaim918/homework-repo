@@ -6,6 +6,7 @@ export default function App() {
     <div className="container">
       <ProfileCard name="김도하" age="26" job="디발자가 되고 싶은 Dev-린이 🌱" />
       <Post author="김도하" content="자스에 이어서 리액트.. 행복하다..ㅎ" />
+      <Post author="김도하" content="요즘 너무 행복해요!" />
     </div>
   );
 }
