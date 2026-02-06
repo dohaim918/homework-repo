@@ -26,6 +26,8 @@ export default function SignupForm() {
   // 체크박스 이벤트
   const handleIsAgree = (e) => setIsAgree(e.target.checked);
 
+  const isOk = form.pw === "" || form.pw !== form.pwConfirm || !isAgree;
+
   // 제출 이벤트
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,7 +37,7 @@ export default function SignupForm() {
       setEmailError("이메일 중복 확인을 해주세요");
       return;
     }
-    if (form.pw === "" || form.pw !== form.pwConfirm || !isAgree) {
+    if (isOk) {
       return;
     }
     alert("가입 성공");
@@ -77,6 +79,7 @@ export default function SignupForm() {
               placeholder="이메일을 입력해 주세요"
               className={emailError && (isEmail ? "success" : "error")}
               onChange={handleInput}
+              required
             />
             <button type="button" className="check-btn" onClick={handleEmail}>
               중복확인
@@ -96,6 +99,7 @@ export default function SignupForm() {
             className={isSubmit && form.pw === "" ? "error" : ""}
             placeholder="비밀번호을 입력해 주세요"
             onChange={handleInput}
+            required
           />
           {isSubmit && form.pw === "" && <p className="message error">비밀번호를 입력해 주세요</p>}
         </div>
@@ -109,6 +113,7 @@ export default function SignupForm() {
             placeholder="비밀번호을 입력해 주세요"
             className={isSubmit && form.pw !== form.pwConfirm ? "error" : ""}
             onChange={handleInput}
+            required
           />
           {isSubmit && form.pw !== form.pwConfirm && (
             <p className={"message error"}>비밀번호가 일치하지 않습니다</p>
@@ -122,7 +127,7 @@ export default function SignupForm() {
           </div>
           {isSubmit && !isAgree && <p className="message error">약관에 동의해주세요</p>}
         </div>
-        <button type="submit" className="submit-btn">
+        <button type="submit" className="submit-btn" disabled={emailError == ""}>
           가입하기
         </button>
       </form>
