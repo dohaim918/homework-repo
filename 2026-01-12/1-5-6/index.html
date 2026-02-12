@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>이벤트 위임 - 버튼 그룹 효율적으로 관리하기</title>
+    <!-- 강사님 ToDo List 예시 - https://codepen.io/cocorosa/pen/myEOemb -->
     <style>
       body {
         background-color: #121212;
@@ -117,6 +118,8 @@
 
       const saved = localStorage.getItem("todos");
       const todos = saved ? JSON.parse(saved) : [];
+
+      // 렌더가 먼저 실행되야 한다
 
       function render() {
         list.innerHTML = "";
