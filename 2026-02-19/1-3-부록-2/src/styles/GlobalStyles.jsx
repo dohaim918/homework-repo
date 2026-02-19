@@ -1,0 +1,135 @@
+import { Global, css } from "@emotion/react";
+import { theme } from "./theme";
+const globalStyles = css`
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  html,
+  body,
+  div,
+  span,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a,
+  img,
+  ul,
+  ol,
+  li,
+  form,
+  fieldset,
+  label,
+  legend,
+  input,
+  textarea,
+  button,
+  table,
+  caption,
+  tbody,
+  thead,
+  tfoot,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  section,
+  header,
+  main,
+  nav,
+  footer {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: "Pretendard" sans-serif;
+  }
+
+  html {
+    min-height: 100dvh;
+  }
+
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: ${theme.colors.bgGradient};
+    color: ${theme.colors.textPrimary};
+    font-family:
+      "Pretendard",
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      "Apple SD Gothic Neo",
+      "Noto Sans KR",
+      Arial,
+      sans-serif;
+  }
+  blockquote,
+  q {
+    quotes: none;
+  }
+
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: "";
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+
+  textarea {
+    resize: none;
+  }
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  button {
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+`;
+
+export const GlobalStyle = () => <Global styles={globalStyles} />;
