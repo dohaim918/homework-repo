@@ -29,10 +29,23 @@
       const list = products.join(", ");
       const PriceOrder = cart.sort((a, b) => a.price - b.price);
       console.log(`상품 목록 : ${list}`);
+
+      // +  PriceOrder 대신 cart를 넣어도 똑같이 동작한다
+      // #  → sort()는 새 배열을 만드는 게 아니라 원본 배열(cart)을 직접 정렬(변경) 하기 때문
       for (let item of PriceOrder) {
         const won = item.price;
         console.log(`${item.product} : ${won.toLocaleString()}원`);
       }
+
+      // function productList(cart) {
+      //   const products = [];
+      //   for (i of cart) {
+      //     name.push(i.product);
+      //   }
+      //   let remove = cart.indexOf("치마");
+
+      //   return cart.join(", ");
+      // }
     </script>
   </body>
 </html>
